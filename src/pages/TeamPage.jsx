@@ -13,7 +13,7 @@ function TeamPage() {
 
   useEffect(function getTeam() {
     axios
-      .get(API_URL + `/teams/${id}`, {
+      .get(API_URL + `/teams/${id}/`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },

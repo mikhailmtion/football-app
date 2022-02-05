@@ -18,7 +18,7 @@ function Competition() {
 
   useEffect(function getTeams() {
     axios
-      .get(API_URL + `competitions/${id}/teams`, {
+      .get(API_URL + `competitions/${id}/teams/`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },
@@ -31,7 +31,7 @@ function Competition() {
 
   useEffect(function getMatches() {
     axios
-      .get(API_URL + `competitions/${id}/matches?status=SCHEDULED`, {
+      .get(API_URL + `competitions/${id}/matches?status=SCHEDULED/`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },
