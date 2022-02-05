@@ -16,6 +16,9 @@ function Home() {
       })
       .then(({ data }) => {
         setLeagues(data.competitions);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
   }, []);
 
