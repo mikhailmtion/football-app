@@ -13,26 +13,34 @@ function TeamPage() {
 
   useEffect(function getTeam() {
     axios
-      .get(API_URL + `/teams/${id}/`, {
+      .get(API_URL + `/teams/${id}`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },
       })
       .then(({ data }) => {
         setTeam(data);
+      })
+      .catch((error) => {
+        console.error(error);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(function getMatchesTeam() {
     axios
-      .get(API_URL + `teams/${id}/matches/`, {
+      .get(API_URL + `teams/${id}/matches`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },
       })
       .then(({ data }) => {
         setMatchesTeam(data.matches);
+      })
+      .catch((error) => {
+        console.error(error);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

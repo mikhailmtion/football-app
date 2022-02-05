@@ -26,19 +26,27 @@ function Competition() {
       .then(({ data }) => {
         setCompetition(data.competition);
         setTeams(data.teams);
+      })
+      .catch((error) => {
+        console.error(error);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(function getMatches() {
     axios
-      .get(API_URL + `competitions/${id}/matches?status=SCHEDULED/`, {
+      .get(API_URL + `competitions/${id}/matches?status=SCHEDULED`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },
       })
       .then(({ data }) => {
         setMatches(data.matches);
+      })
+      .catch((error) => {
+        console.error(error);
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const days = [...new Set(matches.map((bill) => bill.matchday))];
