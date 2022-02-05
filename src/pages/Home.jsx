@@ -9,7 +9,7 @@ function Home() {
 
   useEffect(function getLeagues() {
     axios
-      .get(API_URL + `competitions?plan=TIER_ONE`, {
+      .get(API_URL + `competitions?plan=TIER_ONE/`, {
         headers: {
           "X-Auth-Token": API_KEY,
         },
