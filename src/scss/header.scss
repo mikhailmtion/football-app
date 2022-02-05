@@ -5,16 +5,8 @@
   padding: 10px 0;
   margin-bottom: 10px;
 
-  &__title {
-    display: flex;
-    align-items: center;
-
-    svg {
-      margin-right: 5px;
-    }
-  }
-  span {
-    font-size: 14px;
-    font-weight: 700;
+  svg {
+    cursor: pointer;
   }
 }
+ 

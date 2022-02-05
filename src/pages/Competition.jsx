@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import DayCard from "../components/DayCard";
 import NotMatch from "../components/NotMatch";
 import Loader from "../components/Loader";
+import NoResult from "../components/NoResult";
 
 function Competition() {
   const [teams, setTeams] = useState([]);
@@ -61,7 +62,7 @@ function Competition() {
 
   return (
     <div className="container">
-      {filtredTeams.length > 0 ? (
+      {teams.length > 0 ? (
         <>
           <div className="competition-title">
             <h1>{competition.name}</h1>
@@ -75,12 +76,22 @@ function Competition() {
               />
             </div>
           </div>
-          <h3>Teams</h3>
+          {filtredTeams.length > 0 ?  (
+            <>
+            <h3>Teams</h3>
           <div className="wrapper-teams">
             {filtredTeams.map((team) => (
               <TeamCard key={team.id} {...team} />
             ))}
           </div>
+            </>
+          ): (
+            <NoResult
+            setSearchTeam={setSearchTeam}
+            />
+          )}
+
+
           {days.length > 0 ? (
             <>
               <h3>Matchdays</h3>

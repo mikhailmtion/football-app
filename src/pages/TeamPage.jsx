@@ -57,6 +57,7 @@ function TeamPage() {
                 homeId={match.homeTeam.id}
                 awayId={match.awayTeam.id}
                 date={match.utcDate}
+                name={team.name}
               />
             ))}
           </>

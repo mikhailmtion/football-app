@@ -3,9 +3,10 @@ import axios from "axios";
 import { API_KEY, API_URL } from "../api";
 import League from "../components/League";
 import Loader from "../components/Loader";
+import NoResult from "../components/NoResult";
 function Home() {
   const [leagues, setLeagues] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearchTeam] = useState("");
 
   useEffect(function getLeagues() {
     axios
@@ -28,12 +29,12 @@ function Home() {
       league.area.name.toLowerCase().includes(search.toLowerCase())
   );
   const onChangeSearchInput = (event) => {
-    setSearch(event.target.value);
+    setSearchTeam(event.target.value);
   };
 
   return (
     <div className="container">
-      {filtredLeague.length > 0 ? (
+      {leagues.length > 0 ? (
         <>
           <div className="search">
             <input
@@ -44,17 +45,24 @@ function Home() {
               placeholder="Search..."
             />
           </div>
+          {filtredLeague.length > 0 ? (
           <div className="wrapper-leagues">
-            {filtredLeague.map((league) => (
-              <League
-                key={league.id}
-                image={league.emblemUrl}
-                imageCountry={league.area.ensignUrl}
-                country={league.area.name}
-                {...league}
-              />
-            ))}
-          </div>
+          {filtredLeague.map((league) => (
+            <League
+              key={league.id}
+              image={league.emblemUrl}
+              imageCountry={league.area.ensignUrl}
+              country={league.area.name}
+              {...league}
+            />
+          ))}
+        </div>
+          ) :
+          ( <NoResult
+            setSearchTeam={setSearchTeam}
+          />)
+          }
+
         </>
       ) : (
         <Loader />
