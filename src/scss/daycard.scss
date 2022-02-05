@@ -1,0 +1,39 @@
+@import "variables";
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-gap: 0.5rem;
+  margin-bottom: 20px;
+}
+
+
+.daycard {
+  background-color: $gray-line;
+  height: 40px;
+  padding: 10px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #000e140d;
+  &__active {
+    background-color: $black;
+    b {
+      color: white;
+    }
+  }
+
+  &:hover {
+    background-color: $black;
+    transition: $duration;
+    b {
+      color: white;
+      transition: $duration;
+    }
+  }
+  &__day {
+    text-align: center;
+  }
+
+ 
+}

@@ -1,0 +1,38 @@
+@import "variables";
+
+.team {
+  img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #000e140d;
+
+    h4 {
+      font-size: 12px;
+    }
+
+    span {
+      font-size: 8px;
+    }
+  }
+
+  &__card:hover {
+    background-color: $black;
+    transition: $duration;
+    h4 {
+      color: white;
+    }
+  }
+}
+

@@ -1,0 +1,95 @@
+@import "scss/normalize";
+@import "scss/variables";
+@import "scss/all";
+
+body {
+  margin: 0;
+  background-color: $background;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  max-width: 1180px;
+  padding: 10px 20px;
+  height: 100%;
+  margin: 0 auto;
+  h1,
+  h3 {
+    margin-bottom: 20px;
+  }
+}
+
+.wrapper-leagues {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
+}
+
+.wrapper-teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  grid-gap: 0.5rem;
+}
+.wrapper-matches {
+  display: flex;
+  flex-direction: column;
+}
+
+.competition-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  h1 {
+    font-size: 26px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}
+.search {
+  border: 1px solid $gray-line;
+  margin-bottom: 30px;
+  input {
+    width: 100%;
+    height: 46px;
+    border: none;
+    background: white;
+    padding-left: 45px;
+    border-radius: 2px;
+    font-size: 14px;
+    color: $gray;
+    transition: $duration;
+    &:focus {
+      border: 1px solid $black;
+      color: $black;
+    }
+  }
+
+  &__teams {
+    input {
+      min-width: 374px;
+      height: 46px;
+      margin-bottom: 20px;
+      border: none;
+      background: white;
+      padding-left: 45px;
+      border-radius: 2px;
+      font-size: 14px;
+      color: $gray;
+      transition: $duration;
+      &:focus {
+        border: 1px solid $black;
+        color: $black;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "variables";
+
+
+.league {
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    background-color: white;
+    box-shadow: 0 2px 8px #000e140d;
+    cursor: pointer;
+
+  }
+  
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    span {
+      font-size: 12px;
+      color: $gray;
+    }
+  }
+
+  &__card:hover {
+    background-color: $black;
+    transition: $duration;
+    h4,
+    span {
+      color: white;
+      transition: $duration;
+    }
+    img {
+        background-color: white;
+    }
+    
+  }
+}

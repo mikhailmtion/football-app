@@ -1,0 +1,15 @@
+@import "variables";
+.footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+  bottom: 0;
+    p {
+        font-size: 16px;
+        color: $gray;
+    }
+    svg {
+        margin-right: 10px;
+    }
+}

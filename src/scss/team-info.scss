@@ -1,0 +1,40 @@
+@import "variables";
+.team-info {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $gray-line;
+    border-radius: 2px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+    img {
+      width: 120px;
+      margin-right: 20px;
+    }
+  }
+
+  &__team-name {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin-bottom: 10px;
+    }
+  }
+  &__stadium {
+    display: flex;
+    align-items: center;
+    h4 {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    svg {
+      margin-right: 10px;
+    }
+  }
+}
