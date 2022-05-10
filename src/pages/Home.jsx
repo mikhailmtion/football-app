@@ -47,7 +47,9 @@ function Home() {
           </div>
           {filtredLeague.length > 0 ? (
           <div className="wrapper-leagues">
-          {filtredLeague.map((league) => (
+          {filtredLeague
+          .slice(0,12)
+          .map((league) => (
             <League
               key={league.id}
               image={league.emblemUrl}
