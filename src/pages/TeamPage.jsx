@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { API_KEY, API_URL } from "../api";
-import { useParams } from "react-router-dom";
-import TeamInfo from "../components/TeamInfo";
-import TeamMatches from "../components/TeamMatches";
-import NotMatch from "../components/NotMatch";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+import { useParams } from 'react-router-dom';
+
+import { API_KEY, API_URL } from '../api';
+import TeamInfo from '../components/TeamInfo';
+import TeamMatches from '../components/TeamMatches';
+import NotMatch from '../components/NotMatch';
 
 function TeamPage() {
   const [team, setTeam] = useState([]);
@@ -15,7 +17,7 @@ function TeamPage() {
     axios
       .get(API_URL + `/teams/${id}`, {
         headers: {
-          "X-Auth-Token": API_KEY,
+          'X-Auth-Token': API_KEY,
         },
       })
       .then(({ data }) => {
@@ -24,14 +26,14 @@ function TeamPage() {
       .catch((error) => {
         console.error(error);
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(function getMatchesTeam() {
     axios
       .get(API_URL + `teams/${id}/matches`, {
         headers: {
-          "X-Auth-Token": API_KEY,
+          'X-Auth-Token': API_KEY,
         },
       })
       .then(({ data }) => {
@@ -40,7 +42,7 @@ function TeamPage() {
       .catch((error) => {
         console.error(error);
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function League({ id, name, image, imageCountry, country }) {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function League({ id, name, image, imageCountry, country }) {
           src={
             image ||
             imageCountry ||
-            "https://e7.pngegg.com/pngimages/581/147/png-clipart-2014-fifa-world-cup-premier-league-serie-a-football-football-3d-computer-graphics-sport.png"
+            'https://e7.pngegg.com/pngimages/581/147/png-clipart-2014-fifa-world-cup-premier-league-serie-a-football-football-3d-computer-graphics-sport.png'
           }
           alt={name}
         />

@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { API_KEY, API_URL } from "../api";
-import League from "../components/League";
-import Loader from "../components/Loader";
-import NoResult from "../components/NoResult";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+import { API_KEY, API_URL } from '../api';
+import League from '../components/League';
+import Loader from '../components/Loader';
+import NoResult from '../components/NoResult';
 function Home() {
   const [leagues, setLeagues] = useState([]);
-  const [search, setSearchTeam] = useState("");
+  const [search, setSearchTeam] = useState('');
 
   useEffect(function getLeagues() {
     axios
-      .get(API_URL + `competitions?plan=TIER_ONE`, {
+      .get(API_URL + 'competitions?plan=TIER_ONE', {
         headers: {
-          "X-Auth-Token": API_KEY,
+          'X-Auth-Token': API_KEY,
         },
       })
       .then(({ data }) => {
@@ -46,23 +47,23 @@ function Home() {
             />
           </div>
           {filtredLeague.length > 0 ? (
-          <div className="wrapper-leagues">
-          {filtredLeague
-          .slice(0,12)
-          .map((league) => (
-            <League
-              key={league.id}
-              image={league.emblemUrl}
-              imageCountry={league.area.ensignUrl}
-              country={league.area.name}
-              {...league}
-            />
-          ))}
-        </div>
+            <div className="wrapper-leagues">
+              {filtredLeague
+                .slice(0,12)
+                .map((league) => (
+                  <League
+                    key={league.id}
+                    image={league.emblemUrl}
+                    imageCountry={league.area.ensignUrl}
+                    country={league.area.name}
+                    {...league}
+                  />
+                ))}
+            </div>
           ) :
-          ( <NoResult
-            setSearchTeam={setSearchTeam}
-          />)
+            ( <NoResult
+              setSearchTeam={setSearchTeam}
+            />)
           }
 
         </>

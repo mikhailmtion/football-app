@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Matches({ home, away, date, homeId, awayId }) {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Matches({ home, away, date, homeId, awayId }) {
         </h4>
         <div className="match__date">
           <p>
-            {date.slice(5, 10)} {date.slice(11, 16)}{" "}
+            {date.slice(5, 10)} {date.slice(11, 16)}{' '}
           </p>
         </div>
         <h4

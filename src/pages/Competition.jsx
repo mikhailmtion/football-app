@@ -1,27 +1,29 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { API_KEY, API_URL } from "../api";
-import TeamCard from "../components/TeamCard";
-import Matches from "../components/Matches";
-import { useParams } from "react-router-dom";
-import DayCard from "../components/DayCard";
-import NotMatch from "../components/NotMatch";
-import Loader from "../components/Loader";
-import NoResult from "../components/NoResult";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+import { useParams } from 'react-router-dom';
+
+import { API_KEY, API_URL } from '../api';
+import TeamCard from '../components/TeamCard';
+import Matches from '../components/Matches';
+import DayCard from '../components/DayCard';
+import NotMatch from '../components/NotMatch';
+import Loader from '../components/Loader';
+import NoResult from '../components/NoResult';
 
 function Competition() {
   const [teams, setTeams] = useState([]);
   const [competition, setCompetition] = useState([]);
   const [matches, setMatches] = useState([]);
   const [dayCurrent, setDayCurrent] = useState(30);
-  const [searchTeam, setSearchTeam] = useState("");
+  const [searchTeam, setSearchTeam] = useState('');
   const { id } = useParams();
 
   useEffect(function getTeams() {
     axios
       .get(API_URL + `competitions/${id}/teams/`, {
         headers: {
-          "X-Auth-Token": API_KEY,
+          'X-Auth-Token': API_KEY,
         },
       })
       .then(({ data }) => {
@@ -31,14 +33,14 @@ function Competition() {
       .catch((error) => {
         console.error(error);
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(function getMatches() {
     axios
       .get(API_URL + `competitions/${id}/matches?status=SCHEDULED`, {
         headers: {
-          "X-Auth-Token": API_KEY,
+          'X-Auth-Token': API_KEY,
         },
       })
       .then(({ data }) => {
@@ -47,7 +49,7 @@ function Competition() {
       .catch((error) => {
         console.error(error);
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const days = [...new Set(matches.map((bill) => bill.matchday))];
@@ -78,16 +80,16 @@ function Competition() {
           </div>
           {filtredTeams.length > 0 ?  (
             <>
-            <h3>Teams</h3>
-          <div className="wrapper-teams">
-            {filtredTeams.map((team) => (
-              <TeamCard key={team.id} {...team} />
-            ))}
-          </div>
+              <h3>Teams</h3>
+              <div className="wrapper-teams">
+                {filtredTeams.map((team) => (
+                  <TeamCard key={team.id} {...team} />
+                ))}
+              </div>
             </>
           ): (
             <NoResult
-            setSearchTeam={setSearchTeam}
+              setSearchTeam={setSearchTeam}
             />
           )}
 
